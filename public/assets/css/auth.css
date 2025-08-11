@@ -1,0 +1,67 @@
+:root {
+    --canaco-green: #4a7c59;
+    --canaco-light-green: #6a9b73;
+    --canaco-dark-green: #2e5936;
+    --canaco-accent: #8bc34a;
+}
+
+/* Auth page styling */
+.text-canaco {
+    color: var(--canaco-green) !important;
+}
+
+.btn-canaco {
+    background-color: var(--canaco-green);
+    border-color: var(--canaco-green);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-canaco:hover {
+    background-color: var(--canaco-dark-green);
+    border-color: var(--canaco-dark-green);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.form-control:focus {
+    border-color: var(--canaco-light-green);
+    box-shadow: 0 0 0 0.2rem rgba(74, 124, 89, 0.25);
+}
+
+.input-group-text {
+    background-color: #f8f9fa;
+    border-color: #ced4da;
+    color: var(--canaco-green);
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+/* Custom alert styles */
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    border-color: rgba(220, 53, 69, 0.3);
+    color: #721c24;
+}
+
+/* Link styling */
+a {
+    color: var(--canaco-green);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--canaco-dark-green);
+    text-decoration: underline;
+}
