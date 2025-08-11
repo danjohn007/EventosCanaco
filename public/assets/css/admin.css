@@ -1,0 +1,166 @@
+:root {
+    --canaco-green: #4a7c59;
+    --canaco-light-green: #6a9b73;
+    --canaco-dark-green: #2e5936;
+    --canaco-accent: #8bc34a;
+}
+
+/* Custom CANACO Colors */
+.bg-canaco {
+    background-color: var(--canaco-green) !important;
+}
+
+.text-canaco {
+    color: var(--canaco-green) !important;
+}
+
+.btn-canaco {
+    background-color: var(--canaco-green);
+    border-color: var(--canaco-green);
+    color: white;
+}
+
+.btn-canaco:hover {
+    background-color: var(--canaco-dark-green);
+    border-color: var(--canaco-dark-green);
+    color: white;
+}
+
+.btn-outline-canaco {
+    border-color: var(--canaco-green);
+    color: var(--canaco-green);
+}
+
+.btn-outline-canaco:hover {
+    background-color: var(--canaco-green);
+    border-color: var(--canaco-green);
+    color: white;
+}
+
+/* Custom Cards */
+.border-left-primary {
+    border-left: 0.25rem solid #4e73df !important;
+}
+
+.border-left-success {
+    border-left: 0.25rem solid var(--canaco-green) !important;
+}
+
+.border-left-info {
+    border-left: 0.25rem solid #36b9cc !important;
+}
+
+.border-left-warning {
+    border-left: 0.25rem solid #f6c23e !important;
+}
+
+/* Event Cards */
+.event-card {
+    transition: transform 0.2s ease-in-out;
+    border: 1px solid #e3e6f0;
+}
+
+.event-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+}
+
+/* Navigation */
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: white;
+}
+
+/* Sidebar (if needed later) */
+.sidebar {
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--canaco-green) 10%, var(--canaco-dark-green) 100%);
+}
+
+.sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+}
+
+.sidebar .nav-link:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .nav-link.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Tables */
+.table-hover tbody tr:hover {
+    background-color: rgba(74, 124, 89, 0.05);
+}
+
+/* Custom utilities */
+.text-gray-800 {
+    color: #5a5c69 !important;
+}
+
+.text-gray-300 {
+    color: #dddfeb !important;
+}
+
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+
+.text-xs {
+    font-size: 0.7rem;
+}
+
+/* Form enhancements */
+.form-control:focus {
+    border-color: var(--canaco-light-green);
+    box-shadow: 0 0 0 0.2rem rgba(74, 124, 89, 0.25);
+}
+
+/* Alert customizations */
+.alert-success {
+    background-color: rgba(74, 124, 89, 0.1);
+    border-color: var(--canaco-light-green);
+    color: var(--canaco-dark-green);
+}
+
+/* Status badges */
+.badge.bg-publicado {
+    background-color: var(--canaco-green) !important;
+}
+
+.badge.bg-borrador {
+    background-color: #f6c23e !important;
+}
+
+.badge.bg-cerrado {
+    background-color: #858796 !important;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .btn-group .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Loading spinner */
+.spinner-border-canaco {
+    color: var(--canaco-green);
+}
+
+/* Custom shadows */
+.shadow-canaco {
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(74, 124, 89, 0.15) !important;
+}
