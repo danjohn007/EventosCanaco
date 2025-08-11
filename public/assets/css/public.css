@@ -1,0 +1,203 @@
+:root {
+    --canaco-green: #4a7c59;
+    --canaco-light-green: #6a9b73;
+    --canaco-dark-green: #2e5936;
+    --canaco-accent: #8bc34a;
+}
+
+/* Public event page styling */
+.bg-canaco {
+    background-color: var(--canaco-green) !important;
+}
+
+.text-canaco {
+    color: var(--canaco-green) !important;
+}
+
+.btn-canaco {
+    background-color: var(--canaco-green);
+    border-color: var(--canaco-green);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-canaco:hover {
+    background-color: var(--canaco-dark-green);
+    border-color: var(--canaco-dark-green);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-outline-canaco {
+    border-color: var(--canaco-green);
+    color: var(--canaco-green);
+}
+
+.btn-outline-canaco:hover {
+    background-color: var(--canaco-green);
+    border-color: var(--canaco-green);
+    color: white;
+}
+
+/* Form styling */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--canaco-light-green);
+    box-shadow: 0 0 0 0.2rem rgba(74, 124, 89, 0.25);
+}
+
+/* Event banner styling */
+.event-banner {
+    background: linear-gradient(135deg, var(--canaco-green) 0%, var(--canaco-dark-green) 100%);
+    color: white;
+    border-radius: 15px;
+}
+
+.event-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.event-info-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.event-info-item small {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+/* Registration form styling */
+.registration-form {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.form-section h6 {
+    color: var(--canaco-green);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Alert styling */
+.alert-success {
+    background-color: rgba(74, 124, 89, 0.1);
+    border-color: var(--canaco-light-green);
+    color: var(--canaco-dark-green);
+}
+
+.alert-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    border-color: #ffc107;
+    color: #856404;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .container-fluid .row {
+        flex-direction: column;
+    }
+    
+    .col-lg-6 {
+        min-height: 50vh;
+    }
+    
+    .event-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .p-lg-5 {
+        padding: 2rem !important;
+    }
+}
+
+/* Animation for form transitions */
+#registrationForm,
+#registrationSuccess {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Loading states */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid var(--canaco-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--canaco-green);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--canaco-dark-green);
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        color: black !important;
+        background: white !important;
+    }
+    
+    .bg-canaco {
+        background: white !important;
+        color: black !important;
+    }
+}
