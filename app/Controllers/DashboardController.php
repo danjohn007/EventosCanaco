@@ -38,12 +38,13 @@ class DashboardController extends BaseController {
             [$today]
         )['count'];
         
-        // Upcoming events (next 7 days)
+        // Upcoming events (next 7 days) - SQLite compatible
+        $dateEnd = date('Y-m-d', strtotime('+7 days'));
         $upcomingEvents = $this->db->fetch(
             "SELECT COUNT(*) as count FROM eventos 
-             WHERE fecha_inicio BETWEEN ? AND DATE_ADD(?, INTERVAL 7 DAY) 
+             WHERE fecha_inicio BETWEEN ? AND ? 
              AND estado = 'publicado'",
-            [$tomorrow, $today]
+            [$tomorrow, $dateEnd . ' 23:59:59']
         )['count'];
         
         // Total registrations
@@ -66,21 +67,21 @@ class DashboardController extends BaseController {
             [$today]
         )['count'];
         
-        // Average occupation rate
+        // Average occupation rate - simplified for SQLite
         $occupationData = $this->db->fetch(
             "SELECT 
-                AVG(CASE WHEN e.cupo > 0 THEN (r.registered / e.cupo) * 100 ELSE 0 END) as avg_occupation
+                COUNT(DISTINCT e.id) as total_events,
+                COUNT(r.id) as total_registrations,
+                SUM(e.cupo) as total_capacity
              FROM eventos e
-             LEFT JOIN (
-                SELECT evento_id, COUNT(*) as registered 
-                FROM registros 
-                WHERE estatus != 'cancelado' 
-                GROUP BY evento_id
-             ) r ON e.id = r.evento_id
-             WHERE e.estado = 'publicado'"
+             LEFT JOIN registros r ON e.id = r.evento_id AND r.estatus != 'cancelado'
+             WHERE e.estado = 'publicado' AND e.cupo > 0"
         );
         
-        $avgOccupation = round($occupationData['avg_occupation'] ?? 0, 1);
+        $avgOccupation = 0;
+        if ($occupationData['total_capacity'] > 0) {
+            $avgOccupation = round(($occupationData['total_registrations'] / $occupationData['total_capacity']) * 100, 1);
+        }
         
         return [
             'total_events' => $totalEvents,
@@ -104,7 +105,9 @@ class DashboardController extends BaseController {
              FROM eventos e
              LEFT JOIN registros r ON e.id = r.evento_id AND r.estatus != 'cancelado'
              WHERE 1=1 $limit
-             GROUP BY e.id
+             GROUP BY e.id, e.titulo, e.slug, e.descripcion, e.fecha_inicio, e.fecha_fin, 
+                      e.ubicacion, e.cupo, e.imagen, e.estado, e.costo, e.tipo_publico, 
+                      e.gestor_id, e.config_json, e.created_at, e.updated_at
              ORDER BY e.created_at DESC
              LIMIT 10"
         );

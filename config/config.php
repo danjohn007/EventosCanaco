@@ -1,10 +1,14 @@
 <?php
 // Database configuration
+define('DB_TYPE', 'sqlite'); // mysql or sqlite
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'canaco_eventos');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
+
+// SQLite configuration (fallback)
+define('SQLITE_PATH', __DIR__ . '/../storage/database.sqlite');
 
 // App configuration
 define('APP_NAME', 'CANACO Eventos');
